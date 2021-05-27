@@ -8,11 +8,69 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto&display=swap" rel="stylesheet">
+    
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
     $(document).ready(function(){
-        $
+        console.log("JavaScript is now running");
+        $('#dropdown').hide();
+        $('.rowOfThree p, .rowOfThreeColor p, #viewImgs img,  #testimonials p').hide();
+        $('.rowOfThree h2, .rowOfThreeColor h2, #gallery h2, #viewImgs h5, #testimonials h2, #testimonials h3').css('cursor', 'pointer');
+        $('#contactInfo a').click(function() {
+            alert("Are you sure you want to leave the page?");
+        });
+        
+        $('#pageTitle h1,#pageTitle h3').toggle("slow");
 
+        $('#about').hover(function(){
+            $('#aboutImgL img').fadeIn(2200, function() {
+                $('#aboutImgL h2').fadeOut(2900);
+            });
+        })
+
+        $('#navServices').click(function() {
+            // console.log("Services link clicked");
+            $("#dropdown").slideToggle();
+        });
+        $('#dropdown li').click(function(){
+            $('#dropdown').hide();
+        })
+        $('.rowOfThree h2, .rowOfThreeColor h2').click(function(){
+            $('.rowOfThree p, .rowOfThreeColor p').show();
+        })
+        $('#viewImgs h5').click(function(){
+            $('img').slideDown(1200);
+        })
+        $('#gallery h2').click(function(){
+            $('#viewImgs').slideUp(1400);
+        })
+
+        $('#testimonials h2').click(function(){
+            $('#testimonials p').show();
+        })
+        $('#testimonials h3').click(function(){
+            // console.log("highlight here");
+            $('#testimonials p').show();
+            $("span").addClass("highlight");
+        })
+        $('#testimonials h3').click(function(){
+            $('#testimonials h3').before("<p class='blue'>If you have used our services we would love to hear what you think also! Leave a message below and we may add it to our page!</p>");
+        })
+        $("#endOfPage" ).html("<p>Come back soon</p>" );
+        $("#endOfPage p").append( document.createTextNode( " to keep up with our newest additions" ) );
+        $("#endOfPage").after("<p>copyright ****</p>")
+        
+        $('#check1').click(function(){
+            alert("name submitted as: " +$("#fname").attr("value") + $("#lname").attr("value")); 
+        })
+        $('#submit').click(function(){
+            alert("text submitted as: " +$("#review").val()); 
+        })
+        $('#viewImgs img').click(function(){
+            // console.log("Image has been clicked");
+            $('#viewImgs h5').text("Email us to view more!");
+        })
 
     });
     </script>
@@ -29,7 +87,12 @@
         <div id="nav">
             <a href="#">Home</a>
             <a href="#">About</a>
-            <a href="#">Services</a>
+            <a href="#" id="navServices">Services</a>
+                <ul id="dropdown">
+                    <li><a href="#">Service/Produce 1</a></li>
+                    <li><a href="#">Service 2</a></li>
+                    <li><a href="#">Service or Product 3</a></li>
+                </ul>
             <img src="LoremIpsumLogo.png" alt="Company Logo">
             <a href="#">Our Customers</a>
             <a href="#">Gallery</a>
@@ -39,7 +102,8 @@
             <h1>Welcome to Company Name</h1>
             <h3>Insert Company Slogan Here...</h3>
         </div>
-        <div id="about">
+        
+        <div id="about"> 
             <div id="aboutImgL">
                 <img src="Business-Services.jpg" alt="Company product or service">
                 <h2>Who are we?</h2>
@@ -51,11 +115,11 @@
                 <h2>Services we provide ...</h2>
                 <ul>
                     <li>General encompasing service</li>
-                    <li>Service/Product 2</li>
+                    <li>Service/Product 1</li>
                 </ul>
                 <ul>
-                    <li>Service 3</li>
-                    <li>Service or Product 4</li>
+                    <li>Service 2</li>
+                    <li>Service or Product 3</li>
                 </ul>
             </div>
         </div>
@@ -64,20 +128,60 @@
             <p>We would love to help you. Check out our sercices/products below to see how we can best be of service to you</p>
         </div>
         <div id="servicesMore">
-                <div class="rowOfThree color">
+                <div class="rowOfThreeColor">
                     <h2>Service 1</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit, non molestias libero nobis earum similique quis doloribus saepe, laborum, facere voluptatum labore. Beatae ab eos libero.</p>
                 </div>
                 <div class="rowOfThree">
-                    <h2>Service 1</h2>
+                    <h2>Service 2</h2>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque rem esse, repellendus culpa dolorum dolor nobis.</p>
                 </div>
-                <div class="rowOfThree color">
-                    <h2>Service 1</h2>
+                <div class="rowOfThreeColor">
+                    <h2>Service 3</h2>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem enim et, expedita dicta, est nesciunt ad commodi dolor quas soluta iusto ratione! Odit rerum, exercitationem eveniet dolorum animi dignissimos cumque minus?</p>
                 </div>
             </div>
         </div>
+        <div id="imgs_quotes">
+            <div id="gallery">
+                <h2>Pictures</h2>
+                <div id="viewImgs">
+                    <h5>Click to View Images</h5>
+                    <img src="Lorem-bridge.jpg" alt="bridge">
+                    <img src="Lorem-forest.jpg" alt="forest">
+                    <img src="Lorem-lake.jpg" alt="lake in the mountains">
+                    <img src="Lorem-liberty.jpg" alt="Statue of Liberty">
+                    <img src="Lorem-lighthouse.jpg" alt="Lighthouse at dusk">
+                    <img src="Lorem-sunset.jpg" alt="sunset over a lake">
+                </div>
+            </div>
+            <div id="testimonials">
+                <h2>Click here to read what our customers are saying about us.</h2>
+                <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quod, <span>at voluptatem temporibus non porro aspernatur</span> dolorem recusandae pariatur deleniti eius cumque." -Jane Doe</p>
+                <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque est sint aspernatur animi accusamus quisquam ipsam, reprehenderit optio ratione!" -Jon Doe</p>
+                <p>"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Praesentium cum, deleniti libero iure enim quas, ipsa iusto nesciunt dolores, distinctio numquam explicabo <span>dignissimos accusamus quod harum aliquid tenetur quo iste rem veniam et!</span>" -John Doe</p>
+                <p>"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, eos placeat. A pariatur <span>corrupti voluptatum vero</span>." -Jayne Doe</p>
+                <h3>What do we love best about what our customers think?</h3>
+            </div>
+        </div>
+        <form action="/action_#">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" value="John"><br><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" value="Doe"><br><br>
+            <input id="check1" type="checkbox" unchecked="unchecked">
+            <label for="check1">Check me</label><br><br>
+            <label for="review">Tell us what you think:</label><br>
+            <textarea id="review" name="review" rows="4" cols="50" >
+            </textarea>
+            <input type="submit" id="submit" value="Submit">
+        </form>
+        <h1 id="endOfPage">Thanks!!!</h1>
     </div>
+
+
 </body>
+<script>
+    // <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</script>
 </html>
